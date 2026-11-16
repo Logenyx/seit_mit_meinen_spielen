@@ -1,0 +1,189 @@
+/* ===== Цвета сайта. Поменяй здесь — изменится везде ===== */
+:root {
+  --bg-top: #0b1a3a;       /* фон сверху */
+  --bg-bottom: #02060f;    /* фон снизу */
+  --accent: #3fa9ff;       /* цвет подсветки выбранной карточки */
+  --text: #ffffff;         /* основной текст */
+  --text-dim: #9fb0cc;     /* приглушённый текст */
+  --panel: rgba(255, 255, 255, 0.08); /* фон кнопок */
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: var(--text);
+  background: linear-gradient(var(--bg-top), var(--bg-bottom));
+  overflow-x: hidden;
+}
+
+/* ===== Верхняя панель ===== */
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 20px 40px;
+}
+
+.top-bar h1 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+.top-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+#clock {
+  font-size: 20px;
+  color: var(--text-dim);
+}
+
+.lang-buttons {
+  display: flex;
+  gap: 4px;
+}
+
+.small-btn {
+  background: var(--panel);
+  color: var(--text);
+  border: 1px solid transparent;
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.small-btn:hover {
+  border-color: var(--text-dim);
+}
+
+/* Активный язык */
+.small-btn.active {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* ===== Ряд карточек ===== */
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* «Окно», в котором видна лента карточек. Всё, что за краями, скрыто */
+.games-viewport {
+  overflow: hidden;
+}
+
+/* Лента карточек. JS сдвигает её, чтобы выбранная карточка была в центре */
+.games-row {
+  position: relative;
+  display: flex;
+  gap: 40px;
+  padding: 50px 0;           /* запас сверху и снизу для увеличенной карточки */
+  transition: transform 0.3s ease;  /* плавный сдвиг */
+}
+
+.card {
+  flex: 0 0 auto;
+  width: 260px;              /* ширина и высота одинаковые — карточка квадратная */
+  height: 260px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 110px;
+  cursor: pointer;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.6;
+  transition: transform 0.2s, opacity 0.2s, box-shadow 0.2s;
+}
+
+/* Выбранная карточка: больше, ярче, со светящейся рамкой */
+.card.selected {
+  transform: scale(1.2);
+  opacity: 1;
+  box-shadow: 0 0 0 4px var(--accent), 0 0 30px var(--accent);
+}
+
+/* ===== Информация о выбранной игре ===== */
+.game-info {
+  padding: 0 40px;
+  text-align: center;        /* текст под выбранной карточкой. Убери — будет слева */
+}
+
+.game-info h2 {
+  margin: 0 0 8px;
+  font-size: 36px;
+  font-weight: 400;
+}
+
+.game-info p {
+  margin: 0 auto 20px;
+  max-width: 600px;
+  color: var(--text-dim);
+  font-size: 18px;
+}
+
+.play-btn {
+  background: var(--text);
+  color: var(--bg-top);
+  border: none;
+  border-radius: 30px;
+  padding: 12px 32px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.15s;
+}
+
+.play-btn:hover {
+  transform: scale(1.05);
+}
+
+/* ===== Подсказка внизу ===== */
+footer {
+  padding: 20px 40px;
+  color: var(--text-dim);
+  font-size: 14px;
+}
+
+/* ===== Телефон ===== */
+@media (max-width: 600px) {
+  .top-bar,
+  .game-info,
+  footer {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .games-row {
+    padding: 30px 0;
+    gap: 20px;
+  }
+
+  .card {
+    width: 170px;
+    height: 170px;
+    font-size: 72px;
+  }
+
+  .game-info h2 {
+    font-size: 28px;
+  }
+}

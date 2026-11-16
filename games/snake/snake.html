@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="theme-color" content="#0b0f0c">
+  <title>Snake</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap">
+  <link rel="stylesheet" href="snake.css">
+  <script src="snake.js" defer></script>
+</head>
+<body>
+  <main class="app">
+    <header class="hud">
+      <div class="stats">
+        <div class="stat">
+          <span class="stat-label" data-i18n="score">Счёт</span>
+          <b class="stat-value" id="score">0</b>
+        </div>
+        <div class="stat">
+          <span class="stat-label" data-i18n="best">Рекорд</span>
+          <b class="stat-value" id="best">0</b>
+        </div>
+      </div>
+      <div class="controls">
+        <div class="lang" role="group" aria-label="Language">
+          <button type="button" data-lang="ru">RU</button>
+          <button type="button" data-lang="en">EN</button>
+          <button type="button" data-lang="de">DE</button>
+        </div>
+        <button type="button" id="sound" class="sound-btn" aria-pressed="true">&#9834;</button>
+      </div>
+    </header>
+
+    <div class="board" id="board">
+      <canvas id="game" width="400" height="400"></canvas>
+      <div class="overlay" id="overlay">
+        <h1 class="overlay-title" id="overlay-title"></h1>
+        <p class="overlay-text" id="overlay-text"></p>
+        <button type="button" class="play-btn" id="play"></button>
+        <p class="hint" id="hint"></p>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Мои игры</title>
+  <link rel="stylesheet" href="seit.css">
+</head>
+<body>
+
+  <!-- Верхняя панель: название сайта, часы, язык и звук -->
+  <header class="top-bar">
+    <h1 id="site-title">Мои игры</h1>
+
+    <div class="top-right">
+      <span id="clock">00:00</span>
+
+      <div class="lang-buttons">
+        <button class="small-btn" data-lang="en">EN</button>
+        <button class="small-btn" data-lang="de">DE</button>
+        <button class="small-btn" data-lang="ru">RU</button>
+      </div>
+
+      <button id="sound-btn" class="small-btn" title="Звук">🔊</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Ряд карточек с играми. Карточки создаются в seit.js.
+         games-viewport — «окно», games-row — лента, которая сдвигается,
+         чтобы выбранная карточка стояла ровно по центру. -->
+    <div class="games-viewport">
+      <div id="games" class="games-row"></div>
+    </div>
+
+    <!-- Информация о выбранной игре -->
+    <section class="game-info">
+      <h2 id="game-title"></h2>
+      <p id="game-description"></p>
+      <button id="play-btn" class="play-btn">▶ Играть</button>
+    </section>
+  </main>
+
+  <!-- Подсказка по управлению -->
+  <footer id="hint">← → / A D выбрать · Enter / Пробел играть</footer>
+
+  <script src="seit.js"></script>
+</body>
+</html>
