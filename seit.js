@@ -15,7 +15,7 @@ const games = [
     emoji: "🖱️",
     color: "#f5a623",
     image: "",
-    link: "games/clicker/index.html",
+    link: "games/clicker/cliker.html",
     title: { en: "Clicker", de: "Klicker", ru: "Кликер" },
     description: {
       en: "Click, earn points and buy upgrades and new designs in the shop!",
